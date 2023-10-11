@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+
+class CustomDrawer extends StatefulWidget {
+  const CustomDrawer({super.key});
+
+  @override
+  State<CustomDrawer> createState() => _CustomDrawerState();
+}
+
+class _CustomDrawerState extends State<CustomDrawer> {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: Column(
+        children: [
+          const UserAccountsDrawerHeader(
+            accountName: Text(""),
+            accountEmail: Text(""),
+          ),
+          Expanded(
+              child: ListView(children: [
+            InkWell(
+              child: const ListTile(
+                leading: Icon(Icons.person),
+                title: Text("Heroes"),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            )
+          ]))
+        ],
+      ),
+    );
+  }
+}
